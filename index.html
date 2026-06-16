@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ИЭТР — Инвертор напряжения</title>
-<link rel="stylesheet" href="style.css?v=3">
+<link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
 
@@ -25,6 +25,7 @@
           <li><a href="#" onclick="loadPage('pages/0.html','Информативная справка','1. Информативная справка'); return false;">Разработчики</a></li>
           <li><a href="#" onclick="loadPageAndScroll('pages/0.html','supervisor','Научный руководитель','1. Информативная справка'); return false;">Научный руководитель</a></li>
           <li><a href="#" onclick="loadPageAndScroll('pages/0.html','refs','Нормативные ссылки','1. Информативная справка'); return false;">Нормативные ссылки</a></li>
+          <li><a href="#" onclick="loadPageAndScroll('pages/0.html','conclusion','Заключение','1. Информативная справка'); return false;">Заключение</a></li>
         </ul>
       </li>
 
@@ -58,29 +59,40 @@
           <li><a href="#" onclick="loadPageAndScroll('pages/3.html','schema','Схемотехническое моделирование','4. Техническая характеристика'); return false;">Схемотехническое моделирование</a></li>
           <li><a href="#" onclick="loadPageAndScroll('pages/3.html','topology','Топологическое моделирование','4. Техническая характеристика'); return false;">Топологическое моделирование</a></li>
           <li><a href="#" onclick="loadPageAndScroll('pages/3.html','model3d','3D моделирование','4. Техническая характеристика'); return false;">3D моделирование</a></li>
+          <li><a href="#" onclick="loadPageAndScroll('pages/3.html','mechanical-model','Механическое моделирование','4. Техническая характеристика'); return false;">Механическое моделирование</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a class="nav-main-link" onclick="toggleMenu(this,'sub6')">
+          5. Сборка и монтаж <span class="arrow">▶</span>
+        </a>
+        <ul class="submenu" id="sub6">
+          <li><a href="#" onclick="loadPage('pages/6.html','Технологическая карта','5. Сборка и монтаж'); return false;">Технологическая карта</a></li>
+          <li><a href="#" onclick="loadPageAndScroll('pages/6.html','ietr','Интерактивное руководство (ИЭТР)','5. Сборка и монтаж'); return false;">Интерактивное руководство (ИЭТР)</a></li>
         </ul>
       </li>
 
       <li>
         <a class="nav-main-link" onclick="toggleMenu(this,'sub4')">
-          5. Меры безопасности <span class="arrow">▶</span>
+          6. Меры безопасности <span class="arrow">▶</span>
         </a>
         <ul class="submenu" id="sub4">
-          <li><a href="#" onclick="loadPage('pages/4.html','Механическая жёсткость','5. Меры безопасности'); return false;">Механическая жёсткость</a></li>
-          <li><a href="#" onclick="loadPageAndScroll('pages/4.html','electrical','Электробезопасность','5. Меры безопасности'); return false;">Электробезопасность</a></li>
-          <li><a href="#" onclick="loadPageAndScroll('pages/4.html','emc','Электромагнитная совместимость','5. Меры безопасности'); return false;">Электромагнитная совместимость</a></li>
+          <li><a href="#" onclick="loadPage('pages/4.html','Механическая жёсткость','6. Меры безопасности'); return false;">Механическая жёсткость</a></li>
+          <li><a href="#" onclick="loadPageAndScroll('pages/4.html','electrical','Электробезопасность','6. Меры безопасности'); return false;">Электробезопасность</a></li>
+          <li><a href="#" onclick="loadPageAndScroll('pages/4.html','emc','Электромагнитная совместимость','6. Меры безопасности'); return false;">Электромагнитная совместимость</a></li>
         </ul>
       </li>
 
       <li>
         <a class="nav-main-link" onclick="toggleMenu(this,'sub5')">
-          6. Экономический расчёт <span class="arrow">▶</span>
+          7. Экономический расчёт <span class="arrow">▶</span>
         </a>
         <ul class="submenu" id="sub5">
-          <li><a href="#" onclick="loadPage('pages/5.html','Материалы и компоненты','6. Экономический расчёт'); return false;">Материалы и компоненты</a></li>
-          <li><a href="#" onclick="loadPageAndScroll('pages/5.html','labor','Операционная работа','6. Экономический расчёт'); return false;">Операционная работа</a></li>
-          <li><a href="#" onclick="loadPageAndScroll('pages/5.html','equipment','Оборудование','6. Экономический расчёт'); return false;">Оборудование</a></li>
-          <li><a href="#" onclick="loadPageAndScroll('pages/5.html','summary','Итоговые показатели','6. Экономический расчёт'); return false;">Итоговые показатели</a></li>
+          <li><a href="#" onclick="loadPage('pages/5.html','Материалы и компоненты','7. Экономический расчёт'); return false;">Материалы и компоненты</a></li>
+          <li><a href="#" onclick="loadPageAndScroll('pages/5.html','labor','Операционная работа','7. Экономический расчёт'); return false;">Операционная работа</a></li>
+          <li><a href="#" onclick="loadPageAndScroll('pages/5.html','equipment','Оборудование','7. Экономический расчёт'); return false;">Оборудование</a></li>
+          <li><a href="#" onclick="loadPageAndScroll('pages/5.html','summary','Итоговые показатели','7. Экономический расчёт'); return false;">Итоговые показатели</a></li>
         </ul>
       </li>
 
@@ -103,6 +115,6 @@
   </div>
 </div>
 
-<script src="script.js?v=4"></script>
+<script src="script.js?v=5"></script>
 </body>
 </html>
