@@ -1,40 +1,42 @@
+function setActive(linkEl) {
+  if (!linkEl) return;
+  document.querySelectorAll('.submenu a').forEach(a => a.classList.remove('active'));
+  linkEl.classList.add('active');
+}
+
 function loadPage(pageUrl, title, breadcrumb) {
-  fetch(pageUrl)
+  // захватываем кликнутый пункт СИНХРОННО, пока event ещё актуален
+  var linkEl = window.event ? window.event.target : null;
+  fetch(pageUrl + '?t=' + Date.now())
     .then(r => r.text())
     .then(html => {
       document.getElementById('content').innerHTML = html;
-      window.scrollTo({ top: 0, behavior: 'smooth' });
       if (title) document.getElementById('page-title').textContent = title;
       if (breadcrumb) document.getElementById('breadcrumb').textContent = breadcrumb;
-      document.querySelectorAll('.submenu a').forEach(a => a.classList.remove('active'));
-      event.target.classList.add('active');
+      setActive(linkEl);
+      const main = document.getElementById('main');
+      if (main) main.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     })
     .catch(e => console.error('Ошибка загрузки:', e));
   return false;
 }
 
 function loadPageAndScroll(pageUrl, elementId, title, breadcrumb) {
-  fetch(pageUrl)
+  var linkEl = window.event ? window.event.target : null;
+  fetch(pageUrl + '?t=' + Date.now())
     .then(r => r.text())
     .then(html => {
       document.getElementById('content').innerHTML = html;
       if (title) document.getElementById('page-title').textContent = title;
       if (breadcrumb) document.getElementById('breadcrumb').textContent = breadcrumb;
-      document.querySelectorAll('.submenu a').forEach(a => a.classList.remove('active'));
-      event.target.classList.add('active');
+      setActive(linkEl);
       setTimeout(() => {
         const el = document.getElementById(elementId);
-        const main = document.getElementById('main');
-        if (el && main) {
-          // вычисляем позицию el относительно #main
-          let offset = 0;
-          let node = el;
-          while (node && node !== main) {
-            offset += node.offsetTop;
-            node = node.offsetParent;
-          }
-          main.scrollTo({ top: offset - 16, behavior: 'smooth' });
-        }
+        // scrollIntoView сам находит нужный контейнер прокрутки
+        // (#main на десктопе или окно на мобильной вёрстке);
+        // scroll-margin-top в CSS не даёт спрятаться под липкой шапкой
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }, 150);
     })
     .catch(e => console.error('Ошибка загрузки:', e));
