@@ -24,8 +24,13 @@ function loadPageAndScroll(pageUrl, elementId, title, breadcrumb) {
       event.target.classList.add('active');
       setTimeout(() => {
         const el = document.getElementById(elementId);
-        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 100);
+        const main = document.getElementById('main');
+        if (el && main) {
+          const elTop = el.getBoundingClientRect().top;
+          const mainTop = main.getBoundingClientRect().top;
+          main.scrollTo({ top: main.scrollTop + elTop - mainTop - 16, behavior: 'smooth' });
+        }
+      }, 150);
     })
     .catch(e => console.error('Ошибка загрузки:', e));
   return false;
