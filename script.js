@@ -26,9 +26,14 @@ function loadPageAndScroll(pageUrl, elementId, title, breadcrumb) {
         const el = document.getElementById(elementId);
         const main = document.getElementById('main');
         if (el && main) {
-          const elTop = el.getBoundingClientRect().top;
-          const mainTop = main.getBoundingClientRect().top;
-          main.scrollTo({ top: main.scrollTop + elTop - mainTop - 16, behavior: 'smooth' });
+          // вычисляем позицию el относительно #main
+          let offset = 0;
+          let node = el;
+          while (node && node !== main) {
+            offset += node.offsetTop;
+            node = node.offsetParent;
+          }
+          main.scrollTo({ top: offset - 16, behavior: 'smooth' });
         }
       }, 150);
     })
